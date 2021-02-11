@@ -37,14 +37,24 @@ The user at any point can view the data they have added to their database. They 
 
 ## Code
 
+This app utilized many functions that worked interchangably together. It used inquirer as well as MySQL to function properly.
 
+The dependencies are added first. Then the connection to the MySQL database is created.
 
-!['']()
+!['Dependencies'](https://github.com/rhowe20/mysql-employee-tracker/blob/main/images/add-dependencies.png)
 
-!['']()
+The startApp() function prompts the intial questions to take the user from function to function. It then uses the switch method to go to the correct functions when prompted.
 
-!['']()
+!['Initialize'](https://github.com/rhowe20/mysql-employee-tracker/blob/main/images/initialize.png)
 
-!['']()
+Below is an example of the add functions used to add departments, roles, and employees. 
 
-!['']()
+!['Add Function'](https://github.com/rhowe20/mysql-employee-tracker/blob/main/images/add-function.png)
+
+The updateRole() function is used to update the role ID number of any given employee when selected. 
+
+!['Update Role ID'](https://github.com/rhowe20/mysql-employee-tracker/blob/main/images/update-roleID-function.png)
+
+The functions below allow the user to view any of the data collected.
+
+!['View Functions'](https://github.com/rhowe20/mysql-employee-tracker/blob/main/images/view-functions.png)
