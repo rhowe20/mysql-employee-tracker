@@ -18,6 +18,8 @@ const connection = mysql.createConnection({
         startApp();
     });
 
+// Initial function to start the app
+
     function startApp(){
         inquirer.prompt({
             name: 'start',
@@ -64,6 +66,8 @@ const connection = mysql.createConnection({
             }
         }
     )}
+
+// Add data to database
 
     function addDepartment(){
         inquirer.prompt({
@@ -154,6 +158,8 @@ const connection = mysql.createConnection({
         })
     };
 
+// Update role ID for emplpoyees
+
     function updateRole(){
         let employeeQuery = `SELECT id FROM employee`;
 
@@ -188,6 +194,8 @@ const connection = mysql.createConnection({
 })
     }
     
+// View all roles, departments, and employees
+
     function viewDepartments(){
         connection.query(`SELECT * FROM departments`, function (err, res){
             if (err) throw err
