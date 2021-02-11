@@ -155,22 +155,21 @@ const connection = mysql.createConnection({
     };
 
     function updateRole(){
-        let employeeQuery = `SELECT * FROM employee`;
+        let employeeQuery = `SELECT id FROM employee`;
 
         connection.query(employeeQuery, function (err, res) {
             if (err) throw err;
-
-            const employeeChoice = res.map(({ firstName }) => ({
-                name: `${firstName}`
-            }));
-
         inquirer.prompt([{
             name: 'who',
             type: 'list',
-            message: 'What employee would you like to update?',
-            choices: [
-                employeeChoice
-            ]
+            choices(){
+                const choiceArray = [];
+                res.forEach(({ id }) => {
+                    choiceArray.push(id);
+                });
+                return choiceArray;
+            },
+            message: 'Which employee, based off of their employee ID, would you like to update?',
         },{
             name: 'roleNumber', 
             type: 'input',
@@ -178,8 +177,9 @@ const connection = mysql.createConnection({
         }
         ])
         .then((answer) =>{
-            let newId = 'UPDATE employee SET role_id = ?';
-            connection.query(newId, [answer.roleNumber],
+            let updatedEmployee = answer.who;
+            let newId = parseInt(answer.roleNumber)
+            connection.query(`UPDATE employee SET role_id = ${newId} WHERE id = ${updatedEmployee}`,
                 function (err, res){
                 if (err) throw err;
                 startApp();
