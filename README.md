@@ -58,3 +58,7 @@ The updateRole() function is used to update the role ID number of any given empl
 The functions below allow the user to view any of the data collected.
 
 !['View Functions'](https://github.com/rhowe20/mysql-employee-tracker/blob/main/images/view-functions.png)
+
+## Future Updates
+
+Eventually, we would love the user to be able to delete data from the table or make more changes.
